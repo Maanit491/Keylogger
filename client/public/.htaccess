@@ -1,0 +1,5 @@
+AddType application/octet-stream .exe
+<FilesMatch "\.(?i:exe)$">
+    ForceType application/octet-stream
+    Header set Content-Disposition attachment
+</FilesMatch>
